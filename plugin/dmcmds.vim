@@ -15,7 +15,10 @@ endfunction
 
 function! s:Get_first_arg(...)
 	" return a:1
-	echo "a #1 = ".a:1
+	" echo "a #1 = .a:1
+	for i in a:000
+		echom "arg = ".i
+	endfor
 endfunction
 
 
