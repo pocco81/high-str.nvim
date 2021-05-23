@@ -10,11 +10,11 @@ let s:save_cpo = &cpo " save user coptions
 set cpo&vim " reset them to defaults
 
 function! dmcmds#available_args_tool_align() abort
-	return luaeval('require("duckument_manners").available_commands_align()')
+	return luaeval('require("duckument-manners").available_commands_align()')
 endfunction
 
 " Interface {{{
-command! -nargs=1 -complete=custom,s:complete_args_tool_align DMAlign lua require'duckument_manners.main'.main(0, 0)
+command! -nargs=1 -complete=custom,s:complete_args_tool_align DMAlign lua require'duckument-manners.main'.main(0, 0)
 " }}}
 
 " Tab Completion {{{
