@@ -18,7 +18,6 @@ function! s:GetFirstArg(...)
 endfunction
 
 
-
 " Interface {{{
 " command! -nargs=1 -complete=custom,s:complete_args_tool_align DMAlign lua require'duckument-manners.main'.main(0, '<args>')
 command! -nargs=* -complete=custom,s:complete_args_tool_align DMAlign lua require'duckument-manners.main'.main(0, call s:GetFirstArg(<f-args>))
