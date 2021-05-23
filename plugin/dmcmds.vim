@@ -14,11 +14,7 @@ function! dmcmds#available_args_tool_align() abort
 endfunction
 
 function! s:Get_first_arg(...)
-	return a:1
-	" echo "a #1 = .a:1
-	" for i in a:000
-	" 	echom arg = ".i
-	" endfor
+	let g:ca_tool = a:1
 endfunction
 
 
@@ -26,7 +22,7 @@ endfunction
 " Interface {{{
 " command! -nargs=1 -complete=custom,s:complete_args_tool_align DMAlign lua require'duckument-manners.main'.main(0, '<args>')
 " command! -nargs=* -complete=custom,s:complete_args_tool_align DMAlign call s:Get_first_arg(<f-args>) | lua require'duckument-manners.main'.main(0, 0)
-command! -nargs=* -complete=custom,s:complete_args_tool_align DMAlign echo "val = ".execute("call s:Get_first_arg(<f-args>)")."" | lua require'duckument-manners.main'.main(0, 0)
+command! -nargs=* -complete=custom,s:complete_args_tool_align DMAlign call s:Get_first_arg(<f-args>) | lua require'duckument-manners.main'.main(0, g:ca_tool)
 " }}}
 
 " Tab Completion {{{
