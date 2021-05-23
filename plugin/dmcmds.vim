@@ -21,7 +21,7 @@ endfunction
 
 " Interface {{{
 " command! -nargs=1 -complete=custom,s:complete_args_tool_align DMAlign lua require'duckument-manners.main'.main(0, '<args>')
-command! -nargs=1 -complete=custom,s:complete_args_tool_align DMAlign | let g:fgt_align = call s:Get_first_arg(<f-args>) | lua require'duckument-manners.main'.main(0, g:fgt_align)
+command! -nargs=1 -complete=custom,s:complete_args_tool_align DMAlign | let g:fgt_align = call s:Get_first_arg(<args>) | lua require'duckument-manners.main'.main(0, g:fgt_align)
 " }}}
 
 " Tab Completion {{{
