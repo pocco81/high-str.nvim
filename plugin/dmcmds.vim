@@ -9,7 +9,7 @@ if exists('g:loaded_DuckumentManners') | finish | endif
 let s:save_cpo = &cpo " save user coptions
 set cpo&vim " reset them to defaults
 
-function! duckument_manners#available_args_tool_align() abort
+function! dmcmds#available_args_tool_align() abort
 	return luaeval('require("duckument_manners").available_commands_align()')
 endfunction
 
@@ -19,7 +19,7 @@ command! -nargs=1 -complete=custom,s:complete_args_tool_align DMAlign lua requir
 
 " Tab Completion {{{
 function! s:complete_args_tool_align(arg, line, pos) abort
-	return join(duckument_manners#available_args_tool_align(), "\n")
+	return join(dmcmds#available_args_tool_align(), "\n")
 endfunction
 " }}}
 
