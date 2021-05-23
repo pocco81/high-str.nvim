@@ -13,7 +13,7 @@ function! dmcmds#available_args_tool_align() abort
 	return luaeval('require("duckument-manners.utils.available_args.args_tool_align").available_commands_align()')
 endfunction
 
-function! s:Get_first_arg(...)
+function! s:GetFirstArg(...)
 	return a:1
 endfunction
 
@@ -21,7 +21,7 @@ endfunction
 
 " Interface {{{
 " command! -nargs=1 -complete=custom,s:complete_args_tool_align DMAlign lua require'duckument-manners.main'.main(0, '<args>')
-command! -nargs=1 -complete=custom,s:complete_args_tool_align DMAlign lua require'duckument-manners.main'.main(0, call s:Get_first_arg(<f-args>))
+command! -nargs=* -complete=custom,s:complete_args_tool_align DMAlign lua require'duckument-manners.main'.main(0, call s:GetFirstArg(<f-args>))
 " }}}
 
 " Tab Completion {{{
