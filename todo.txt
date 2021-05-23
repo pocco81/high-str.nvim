@@ -1,0 +1,11 @@
+
+
+Create a plugin that will provide users with a bunch of utilities for formating text in a better way than usual. Since there are already a bunch of plugins with various functionalities, the current goal is to translate and improve existing ones to Lua + create the functionalities that don't exist [yet]. These are the plugins:
+
+1. Vim-pencil			(Plugin exists)
+2. Format text (align)	(No plugin)
+3. Highlight text		(No plugin)
+4. vim-bookmarks		(Plugin exists)
+5. vim-litecorrect		(Plugin exists)
+6. vim-ditto			(Plugin exists)
+
