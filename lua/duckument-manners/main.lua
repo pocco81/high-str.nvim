@@ -6,7 +6,7 @@ local cmd  = vim.cmd
 
 
 function M.available_commands_align()
-	local arguments = require("duckument-manners.utils.args_tool_align")
+	local arguments = require("duckument-manners.utils.available_args.args_tool_align")
 	return vim.tbl_keys(arguments)
 end
 
