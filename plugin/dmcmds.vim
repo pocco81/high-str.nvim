@@ -10,7 +10,7 @@ let s:save_cpo = &cpo " save user coptions
 set cpo&vim " reset them to defaults
 
 function! dmcmds#available_args_tool_align() abort
-	return luaeval('require("duckument-manners").available_commands_align()')
+	return luaeval('require("duckument-manners.main").available_commands_align()')
 endfunction
 
 " Interface {{{
