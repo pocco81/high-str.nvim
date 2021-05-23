@@ -1,9 +1,16 @@
 
 
+local M = {}
+
 local arguments = {
-	"left",
-	"right"
+	["left"] = "left",
+	["right"] = "right"
 }
 
-return arguments
+function M.available_commands_align()
+	return vim.tbl_keys(arguments)
+end
+
+
+return M
 
