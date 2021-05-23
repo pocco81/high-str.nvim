@@ -15,7 +15,6 @@ endfunction
 
 " Interface {{{
 command! -nargs=1 -complete=custom,s:complete_args_tool_align DMAlign lua require'duckument_manners.main'.main(0, 0)
-
 " }}}
 
 " Tab Completion {{{
