@@ -13,7 +13,7 @@ function M.main(option, command_option)
 	if (option == 0) then
 		cmd("echo 'Aligning document to the "..tostring(command_option).."...'")
 	else
-		cmd("echoerr 'Command was not recognized for DuckumentManners.nvim'")
+		cmd("echo 'Command was not recognized for DuckumentManners.nvim'")
 	end
 end
 
