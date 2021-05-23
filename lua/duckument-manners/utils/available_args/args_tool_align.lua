@@ -7,7 +7,7 @@ local arguments = {
 	["right"] = "right"
 }
 
-function M.available_commands_align()
+function M.available_commands()
 	return vim.tbl_keys(arguments)
 end
 
