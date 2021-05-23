@@ -18,7 +18,7 @@ endfunction
 " endfunction
 
 function! dmcmds#get_first_arg(...)
-	return a:1
+	return "".a:1.""
 endfunction
 
 
@@ -27,8 +27,9 @@ endfunction
 " command! -nargs=1 -complete=custom,s:complete_args_tool_align DMAlign lua require'duckument-manners.main'.main(0, '<args>')
 " command! -nargs=* -complete=custom,s:complete_args_tool_align DMAlign call s:Get_first_arg(<f-args>) | lua require'duckument-manners.main'.main(0, 0)
 " command! -nargs=* -complete=custom,s:complete_args_tool_align DMAlign let g:ca_tool = "".dmcmds#get_first_arg(<f-args>)."" | call v:lua.require("duckument-manners.main").main(0,g:ca_tool)
+" command! -nargs=* -complete=custom,s:complete_args_tool_align DMAlign call v:lua.require("duckument-manners.main").main(0,"".dmcmds#get_first_arg(<f-args>)."")
 
-command! -nargs=* -complete=custom,s:complete_args_tool_align DMAlign call v:lua.require("duckument-manners.main").main(0,"".dmcmds#get_first_arg(<f-args>)."")
+command! -nargs=* -complete=custom,s:complete_args_tool_align DMAlign call v:lua.require("duckument-manners.main").main(0,dmcmds#get_first_arg(<f-args>))
 
 " command! -nargs=* -complete=custom,s:complete_args_tool_align DMAlign let g:ca_tool = .dmcmds#get_first_arg(<f-args>)."" | lua require'duckument-manners.main'.main(0, g:ca_tool)
 
