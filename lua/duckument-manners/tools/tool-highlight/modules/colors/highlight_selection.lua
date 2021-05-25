@@ -6,9 +6,7 @@ local api = vim.api
 local cmd = vim.cmd
 
 
--- local function get_cols(num)
---
--- end
+local function get_cols(num) return api.nvim_eval("col(["..num..", '$'])") end
 
 function M.highlight_visual_selection(hi_group)
 
@@ -30,9 +28,7 @@ function M.highlight_visual_selection(hi_group)
 		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, end_col)
 	else
 
-		local cols_in_beg_line = api.nvim_eval("col(["..beg_line..", '$'])")
-
-		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, cols_in_beg_line - 1)
+		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, get_cols(beg_line) - 1)
 		if (beg_line + 1 == end_line) then
 			api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line, 0, end_col)
 		elseif (beg_line - 1 == end_line) then
@@ -40,8 +36,7 @@ function M.highlight_visual_selection(hi_group)
 		else
 			for i=beg_line - 1, end_line - 1, 1 do
 				if (i ~= end_line - 1) then
-					local cols_in_i = api.nvim_eval("col(["..i.." + 1, '$'])")
-					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, tonumber(cols_in_i))
+					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, get_cols(i))
 				else
 					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, end_col)
 				end
