@@ -33,7 +33,8 @@ function M.highlight_visual_selection(hi_group)
 		else
 			for i=beg_line - 1, end_line - 1, 1 do
 				if (i ~= end_line - 1) then
-					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, api.nvim_eval("col(["..i.." + 1, '$']"))
+					local cols_in_i = api.nvim_eval("col(["..i.." + 1, '$']")
+					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, cols_in_i)
 				else
 					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, end_col)
 				end
