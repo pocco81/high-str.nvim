@@ -49,7 +49,6 @@ function M.highlight_visual_selection(hi_group)
 				-- 	call nvim_buf_add_highlight(bufnr('%'), 0, 'LineHighlight', i, 0, end_col)
 				-- endif
 
-
 			local counter = 0
 
 			for i=beg_line - 1, end_line - 1, 1 do
