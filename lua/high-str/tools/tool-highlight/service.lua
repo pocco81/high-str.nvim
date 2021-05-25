@@ -2,8 +2,8 @@
 
 local M = {}
 
-local colors = require("duckument-manners.tools.tool-highlight.modules.colors")
-local highlight_selection = require("duckument-manners.tools.tool-highlight.modules.highlight_selection")
+local colors = require("high-str.tools.tool-highlight.modules.colors")
+local highlight_selection = require("high-str.tools.tool-highlight.modules.highlight_selection")
 
 
 function M.highlight(hi_index)

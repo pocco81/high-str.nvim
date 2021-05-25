@@ -17,7 +17,7 @@ endfunction
 
 " Test Availability {{{
 function! hscmds#available_args_tool_highlight() abort
-	return luaeval('require("duckument-manners.utils.available_args.args_tool_highlight").available_commands()')
+	return luaeval('require("high-str.utils.available_args.args_tool_highlight").available_commands()')
 endfunction
 " }}}
 
@@ -29,8 +29,8 @@ endfunction
 
 
 " Interface {{{
-command! -nargs=* -complete=custom,s:complete_args_tool_highlight HSHighlight call v:lua.require("duckument-manners.main").main(0,hscmds#get_first_arg(<f-args>))
-command! -nargs=* -complete=custom,s:complete_args_tool_highlight HSRmHighlight call v:lua.require("duckument-manners.main").main(1)
+command! -nargs=* -complete=custom,s:complete_args_tool_highlight HSHighlight call v:lua.require("high-str.main").main(0,hscmds#get_first_arg(<f-args>))
+command! -nargs=* -complete=custom,s:complete_args_tool_highlight HSRmHighlight call v:lua.require("high-str.main").main(1)
 " }}}
 
 

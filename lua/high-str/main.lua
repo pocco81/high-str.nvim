@@ -4,8 +4,8 @@ local M = {}
 
 local cmd  = vim.cmd
 
-local tool_highlight = require("duckument-manners.tools.tool-highlight.init")
-local tool_verbosity = require("duckument-manners.tools.tool-verbosity.init")
+local tool_highlight = require("high-str.tools.tool-highlight.init")
+local tool_verbosity = require("high-str.tools.tool-verbosity.init")
 
 
 
@@ -21,7 +21,7 @@ function M.main(option, command_option)
 		tool_verbosity.verbose_print("Removing Highlight...")
 		tool_highlight.main(command_option)
 	else
-		cmd("echo 'Command was not recognized for DuckumentManners.nvim'")
+		cmd("echo 'Command was not recognized for HighStr.nvim'")
 	end
 end
 

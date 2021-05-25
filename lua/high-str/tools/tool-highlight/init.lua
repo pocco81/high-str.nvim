@@ -4,7 +4,7 @@
 local M = {}
 
 
-local service = require("duckument-manners.tools.tool-highlight.service")
+local service = require("high-str.tools.tool-highlight.service")
 
 local function highlight(hi_index)
 	service.highlight(hi_index)

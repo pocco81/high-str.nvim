@@ -4,7 +4,7 @@
 local M = {}
 
 
-local opts = require("duckument-manners.config").options
+local opts = require("high-str.config").options
 
 
 function M.verbose_print(msg)

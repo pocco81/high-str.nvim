@@ -2,8 +2,8 @@
 local M = {}
 local cmd = vim.cmd
 
-local opts = require("duckument-manners.config").options
-local tool_verbosity = require("duckument-manners.tools.tool-verbosity.init")
+local opts = require("high-str.config").options
+local tool_verbosity = require("high-str.tools.tool-verbosity.init")
 
 -- https://github.com/norcalli/nvim-colorizer.lua/blob/master/lua/colorizer.lua
 -- https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color

@@ -3,7 +3,7 @@
 local M = {}
 
 local api = vim.api
-local tool_verbosity = require("duckument-manners.tools.tool-verbosity.init")
+local tool_verbosity = require("high-str.tools.tool-verbosity.init")
 
 
 local function get_cols(num) return api.nvim_eval("col(["..num..", '$'])") end
