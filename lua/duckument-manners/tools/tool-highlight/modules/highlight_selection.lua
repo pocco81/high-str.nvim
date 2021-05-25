@@ -8,6 +8,22 @@ local tool_verbosity = require("duckument-manners.tools.tool-verbosity.init")
 
 local function get_cols(num) return api.nvim_eval("col(["..num..", '$'])") end
 
+function M.rm_highlight_visual_selection()
+	api.nvim_exec([[
+		" Get the line and column of the visual selection marks
+		let [beg_line, beg_col] = getpos("'<")[1:2]
+		let [end_line, end_col] = getpos("'>")[1:2]
+	]], false)
+
+	local beg_line = api.nvim_eval([[get(g:,"beg_line", 0)]])
+	local end_line = api.nvim_eval([[get(g:,"end_line", 0)]])
+	local current_buffer = api.nvim_eval([[bufnr('%')]])
+
+	tool_verbosity.verbose_print("Starting process for removing the highlighted selection...")
+	tool_verbosity.verbose_print("Beg_line = "..beg_line.."; End_line = "..end_line)
+	api.nvim_buf_clear_namespace(current_buffer, 0, beg_line - 1, end_line)
+end
+
 function M.highlight_visual_selection(hi_group)
 
 	api.nvim_exec([[
@@ -22,6 +38,7 @@ function M.highlight_visual_selection(hi_group)
 	local end_col = api.nvim_eval([[get(g:,"end_col", 0)]])
 	local current_buffer = api.nvim_eval([[bufnr('%')]])
 
+	tool_verbosity.verbose_print("Starting process for highlighting selection...")
 	tool_verbosity.verbose_print("Beg_line = "..beg_line.."; Beg_col = "..beg_col.."; End_line = "..end_line.."; End_col = "..end_col)
 
 	if (beg_line == end_line) then

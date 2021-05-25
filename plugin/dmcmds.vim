@@ -30,6 +30,7 @@ endfunction
 
 " Interface {{{
 command! -nargs=* -complete=custom,s:complete_args_tool_highlight DMHighlight call v:lua.require("duckument-manners.main").main(0,dmcmds#get_first_arg(<f-args>))
+command! -nargs=* -complete=custom,s:complete_args_tool_highlight DMRmHighlight call v:lua.require("duckument-manners.main").main(1)
 " }}}
 
 
@@ -38,3 +39,4 @@ unlet s:save_cpo
 
 " set to true the var that controls the plugin's loading
 let g:loaded_DuckumentManners = 1
+

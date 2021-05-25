@@ -12,10 +12,13 @@ local tool_verbosity = require("duckument-manners.tools.tool-verbosity.init")
 function M.main(option, command_option)
 
 	option = option or 0
-	command_option = command_option or "DEFAULT"
+	command_option = command_option or "RmHighlight"
 
 	if (option == 0) then
 		tool_verbosity.verbose_print("Highlighting...")
+		tool_highlight.main(command_option)
+	elseif (option == 1) then
+		tool_verbosity.verbose_print("Removing Highlight...")
 		tool_highlight.main(command_option)
 	else
 		cmd("echo 'Command was not recognized for DuckumentManners.nvim'")
