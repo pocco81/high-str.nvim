@@ -1,41 +1,13 @@
 
 
-Create a plugin that will provide users with a bunch of utilities for formating text in a better way than usual. Since there are already a bunch of plugins with various functionalities, the current goal is to translate and improve existing ones to Lua + create the functionalities that don't exist [yet]. These are the plugins:
 
-1. Format text (align)	(No plugin)
-2. Vim-pencil			(Plugin exists)
-3. Highlight text		(No plugin)
-4. vim-bookmarks		(Plugin exists)
-5. vim-litecorrect		(Plugin exists)
-6. vim-ditto			(Plugin exists)
+How to highlight:
 
 
+1. create hi groups
+2. check which color is it
+3. get visual selection
+4. highlight it
 
-Previewed commands for each mode:
-	1)
-		DMAlign [left/right]	- defualt = left
-	2)
-		DMPencil [soft/hard]	- default = soft
-	3)
-		DMHighlight [<1-9>]		- default = 0
-	4)
-		DMBookmark [toggle/create/delete/annotate/save/next/prev]	- default = toggle
-	5)
-		DMCorrection [start/stop/toggle]	- defualt = toggle
-	6)
-		DMRepetition [start/stop/toggle]	- defualt = toggle
-
-
-Before: save cursor ppsition
-
-
-1. clear the line
-	1,i0 go to like with :$i
-	1,i1 insert a line below
-	1,i2 clear namespace from $i line to $i + 1 one line
-2. Highlight from 0 to end
-
-
-After: restore position
 
 
