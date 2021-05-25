@@ -21,9 +21,15 @@ local function hex2rgb(hex)
     return tonumber("0x"..hex:sub(1,2)), tonumber("0x"..hex:sub(3,4)), tonumber("0x"..hex:sub(5,6))
 end
 
+local function table_length(T)
+	local count = 0
+	for _ in pairs(T) do count = count + 1 end
+	return count
+end
+
 function M.which_hi_group(hi_index)
 	local index = tonumber(hi_index)
-	if (index >= 0 and index <= 10) then
+	if (index >= 0 and index <= table_length(opts["highlight_colors"])) then
 		return "DMHGroup"..index
 	end
 end
