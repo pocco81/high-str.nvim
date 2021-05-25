@@ -2,10 +2,12 @@
 
 local config = {}
 
+--
 
 config.options = {
-	highlight = {
-		color_1 = "#DFFF00",	-- Chartreuse yellow
+	verbosity = 0,
+	highlight_colors = {
+		color_1 = "#e5c07b",	-- Pastel yellow
 		color_2 = "#7FFFD4",	-- Aqua menthe
 		color_3 = "#8A2BE2",	-- Proton purple
 		color_4 = "#FF4500",	-- Orange red
@@ -14,7 +16,7 @@ config.options = {
 		color_7 = "#FFC0CB",	-- Blush pink
 		color_8 = "#FFF9E3",	-- Cosmic latte
 		color_9 = "#7d5c34",	-- Fallow brown
-		color_0 = "#bkg",	-- Arsenic grey
+		color_0 = "#DFFF00",	-- Chartreuse yellow
 	}
 }
 

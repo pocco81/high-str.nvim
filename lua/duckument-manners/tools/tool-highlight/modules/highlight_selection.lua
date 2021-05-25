@@ -3,6 +3,8 @@
 local M = {}
 
 local api = vim.api
+local tool_verbosity = require("duckument-manners.tools.tool-verbosity.init")
+
 
 local function get_cols(num) return api.nvim_eval("col(["..num..", '$'])") end
 
@@ -19,6 +21,8 @@ function M.highlight_visual_selection(hi_group)
 	local end_line = api.nvim_eval([[get(g:,"end_line", 0)]])
 	local end_col = api.nvim_eval([[get(g:,"end_col", 0)]])
 	local current_buffer = api.nvim_eval([[bufnr('%')]])
+
+	tool_verbosity.verbose_print("Beg_line = "..beg_line.."; Beg_col = "..beg_col.."; End_line = "..end_line.."; End_col = "..end_col)
 
 	if (beg_line == end_line) then
 		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, end_col)
