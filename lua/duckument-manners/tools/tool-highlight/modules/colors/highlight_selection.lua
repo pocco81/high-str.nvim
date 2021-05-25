@@ -37,20 +37,6 @@ function M.highlight_visual_selection(hi_group)
 			api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, 0, end_col)
 		else
 
-
-				-- if (i != end_line_minus_one)
-				-- 	if (exists("s:ran_this_already"))
-				-- 		call nvim_buf_clear_namespace(bufnr('%'), 0, i, i + 1)
-				-- 		call nvim_buf_add_highlight(bufnr('%'), 0, 'LineHighlight', i, 0, col([i + 1, '$']) - 1)
-				-- 	else
-				-- 		let s:ran_this_already = "fdfsfsfs"
-				-- 		call nvim_buf_add_highlight(bufnr('%'), 0, 'LineHighlight', beg_minus_one, beg_col, end_col)
-				-- 	endif
-				-- 	" echo col([i, '$']) - 1
-				-- else
-				-- 	call nvim_buf_add_highlight(bufnr('%'), 0, 'LineHighlight', i, 0, end_col)
-				-- endif
-
 			local counter = 0
 
 			for i=beg_line - 1, end_line - 1, 1 do
@@ -69,8 +55,12 @@ function M.highlight_visual_selection(hi_group)
 		end
 	end
 
-	-- cmd([[let s:cursor_pos_after = getpos(".")]])
-	-- local after_pos_two = api.nvim_eval([[get(s:,"cursor_pos_after", 0)]])
+	cmd([[let s:cursor_pos_after = getpos(".")]])
+	local after_pos_two = api.nvim_eval([[get(s:,"cursor_pos_after[2]", 0)]])
+	api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, after_pos_two - 1, after_pos_two)
+
+
+
 	-- cmd("echo 'after = "..after_pos_two.."'")
 	-- api.nvim_exec([[
 	-- 	let save_pos = getpos(".")
