@@ -12,7 +12,7 @@ function M.parse_colors()
 		local hi_color = opts["highlight"][opt]
 
 		if (opt == "color_0") then		-- background
-			require("duckument-manners.tools.tool-highlight.modules.hi_utils").load_viml_funcs()
+			require("duckument-manners.tools.tool-highlight.modules.colors.hi_utils").load_viml_funcs()
 			local bkg_color = vim.api.nvim_eval("DMGetColor('Normal', 'bg#')")
 			vim.cmd('highlight '..hi_name.." guibg="..bkg_color.."")
 		else
