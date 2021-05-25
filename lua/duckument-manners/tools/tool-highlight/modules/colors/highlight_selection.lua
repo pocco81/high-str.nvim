@@ -23,7 +23,6 @@ function M.highlight_visual_selection(hi_group)
 	local current_buffer = api.nvim_eval([[bufnr('%')]])
 
 
-
 	if (beg_line == end_line) then
 		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, end_col)
 	else
@@ -34,7 +33,24 @@ function M.highlight_visual_selection(hi_group)
 		elseif (beg_line - 1 == end_line) then
 			api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, 0, end_col)
 		else
-			for i=beg_line - 1, end_line - 1, 1 do
+
+
+				-- if (i != end_line_minus_one)
+				-- 	if (exists("s:ran_this_already"))
+				-- 		call nvim_buf_clear_namespace(bufnr('%'), 0, i, i + 1)
+				-- 		call nvim_buf_add_highlight(bufnr('%'), 0, 'LineHighlight', i, 0, col([i + 1, '$']) - 1)
+				-- 	else
+				-- 		let s:ran_this_already = "fdfsfsfs"
+				-- 		call nvim_buf_add_highlight(bufnr('%'), 0, 'LineHighlight', beg_minus_one, beg_col, end_col)
+				-- 	endif
+				-- 	" echo col([i, '$']) - 1
+				-- else
+				-- 	call nvim_buf_add_highlight(bufnr('%'), 0, 'LineHighlight', i, 0, end_col)
+				-- endif
+
+
+
+			for i=beg_line, end_line - 1, 1 do
 				if (i ~= end_line - 1) then
 					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, get_cols(i))
 				else
