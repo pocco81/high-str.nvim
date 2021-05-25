@@ -55,8 +55,7 @@ function M.highlight_visual_selection(hi_group)
 		end
 	end
 
-	cmd([[let g:dm_cursor_pos_after = getpos(".")]])
-	local after_pos_two = api.nvim_eval([[get(g:,"dm_cursor_pos_after[2]", 0)]])
+	local after_pos_two = api.nvim_eval("getpos('.')[2]")
 	cmd("echo 'after pos:"..after_pos_two.."'")
 	api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, after_pos_two - 1, after_pos_two)
 
