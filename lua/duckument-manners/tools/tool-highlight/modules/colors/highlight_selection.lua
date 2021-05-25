@@ -24,23 +24,27 @@ function M.highlight_visual_selection(hi_group)
 	-- cmd("echo 'beg_line: "..beg_line.."; beg_col: "..beg_col.."; end_line: "..end_line.."; end_col: "..end_col.."'")
 
 	if (beg_line == end_line) then
-		-- api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, end_col)
-		api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', beg_line - 1, beg_col, end_col)
+		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, end_col)
+		-- api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', beg_line - 1, beg_col, end_col)
 	else
 		api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', beg_line - 1, beg_col, 2147483647)
 		if (beg_line + 1 == end_line) then
-			-- api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line, 0, end_col)
-			api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', beg_line, 0, end_col)
+			api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line, 0, end_col)
+			-- api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', beg_line, 0, end_col)
 		elseif (beg_line - 1 == end_line) then
-			-- api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, 0, end_col)
-			api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', beg_line - 1, 0, end_col)
+			api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, 0, end_col)
+			-- api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', beg_line - 1, 0, end_col)
 		else
 			for i=beg_line - 1, end_line - 1, 1 do
 				if (i ~= end_line - 1) then
-					api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', i, 0, 2147483647)
+					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, 2147483647)
+
+					-- api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', i, 0, 2147483647)
 					-- api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', i, 0, 2147483647)
 				else
-					api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', i, 0, end_col)
+					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, end_col)
+
+					-- api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', i, 0, end_col)
 					-- api.nvim_buf_add_highlight(current_buffer, 0, 'LineHighlight', i, 0, end_col)
 				end
 			end
