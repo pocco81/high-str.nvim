@@ -11,7 +11,7 @@ set cpo&vim " reset them to defaults
 
 " Utils {{{
 function! dmcmds#get_first_arg(...)
-	return "".a:1.""
+	return "".get(a:, 1, 0).""
 endfunction
 " }}}
 

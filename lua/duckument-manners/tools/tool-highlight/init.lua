@@ -13,11 +13,8 @@ end
 function M.main(option)
 
 	-- option = color
-
-	if not (option == "DEFAULT") then
+	if not (option == "NONE") then
 		highlight(option)
-	else
-		highlight(1)
 	end
 end
 
