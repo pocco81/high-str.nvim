@@ -59,7 +59,7 @@ function M.highlight_visual_selection(hi_group)
 						api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, get_cols(i + 1) - 1)
 					else
 						counter = counter + 1
-						api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, end_col)
+						api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, end_col)
 					end
 				else
 					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, end_col)
