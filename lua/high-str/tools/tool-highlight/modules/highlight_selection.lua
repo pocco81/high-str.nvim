@@ -45,7 +45,7 @@ function M.highlight_visual_selection(hi_group)
 		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, end_col)
 	else
 
-		api.nvim_buf_clear_namespace(current_buffer, 0, beg_line - 1, beg_line)
+		-- api.nvim_buf_clear_namespace(current_buffer, 0, beg_line - 1, beg_line)
 		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, get_cols(beg_line) - 1)
 
 		if (beg_line + 1 == end_line) then
