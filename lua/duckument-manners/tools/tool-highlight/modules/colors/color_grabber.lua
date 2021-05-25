@@ -7,3 +7,5 @@ function M.which_hi_group(hi_index)
 		return "DMHGroup"..hi_index
 	end
 end
+
+return M
