@@ -3,16 +3,16 @@
 local M = {}
 
 local arguments = {
-	[1] = "blue",
-	[2] = "red",
-	[3] = "green",
-	[4] = "yellow",
-	[5] = "purple",
-	[6] = "black",
-	[7] = "orange",
-	[8] = "white",
-	[9] = "pink",
-	[0] = "cyan"
+	1,
+	2,
+	3,
+	4,
+	5,
+	6,
+	7,
+	8,
+	9,
+	0
 }
 
 function M.available_commands()

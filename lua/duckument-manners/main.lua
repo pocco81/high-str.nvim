@@ -4,6 +4,9 @@ local M = {}
 
 local cmd  = vim.cmd
 
+local tool_highlight = require("duckument-manners.tools.tool-highlight.init")
+
+
 
 function M.main(option, command_option)
 
@@ -16,6 +19,7 @@ function M.main(option, command_option)
 		cmd("echo 'Pencil - "..tostring(command_option).."...'")
 	elseif (option == 2) then
 		cmd("echo 'Highlight - "..tostring(command_option).."...'")
+		tool_highlight.main(command_option)
 	elseif (option == 3) then
 		cmd("echo 'Bookmark - "..tostring(command_option).."...'")
 	elseif (option == 4) then
@@ -28,5 +32,5 @@ function M.main(option, command_option)
 end
 
 
--- export the functions
 return M
+

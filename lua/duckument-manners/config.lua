@@ -3,7 +3,20 @@
 local config = {}
 
 
-config.options = {}
+config.options = {
+	highlight = {
+		color_1 = "#DFFF00",	-- Chartreuse yellow
+		color_2 = "#7FFFD4",	-- Aqua menthe
+		color_3 = "#8A2BE2",	-- Proton purple
+		color_4 = "#FF4500",	-- Orange red
+		color_5 = "#008000",	-- Office green
+		color_6 = "#0000FF",	-- Just blue
+		color_7 = "#FFC0CB",	-- Blush pink
+		color_8 = "#FFF9E3",	-- Cosmic latte
+		color_9 = "#7d5c34",	-- Fallow brown
+		color_0 = "#bkg",	-- Arsenic grey
+	}
+}
 
 
 function config.set_options(opts)
