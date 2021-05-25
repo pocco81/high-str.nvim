@@ -19,13 +19,15 @@ function M.highlight_visual_selection(hi_group)
 	local end_col = api.nvim_eval([[get(g:,"end_col", 0)]])
 	local current_buffer = api.nvim_eval([[bufnr('%')]])
 
-	local cols_in_beg_line = api.nvim_eval("col(["..beg_line..", '$']) - 1)")
 
 
 	if (beg_line == end_line) then
 		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, end_col)
 	else
-		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, cols_in_beg_line)
+
+		local cols_in_beg_line = api.nvim_eval("col(["..beg_line..", '$']) - 1)")
+
+		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, tonumber(cols_in_beg_line))
 		if (beg_line + 1 == end_line) then
 			api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line, 0, end_col)
 		elseif (beg_line - 1 == end_line) then
@@ -34,7 +36,7 @@ function M.highlight_visual_selection(hi_group)
 			for i=beg_line - 1, end_line - 1, 1 do
 				if (i ~= end_line - 1) then
 					local cols_in_i = api.nvim_eval("col(["..i.." + 1, '$']")
-					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, cols_in_i)
+					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, tonumber(cols_in_i))
 				else
 					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, end_col)
 				end
