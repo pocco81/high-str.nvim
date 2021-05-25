@@ -10,7 +10,7 @@ local highlight_selection = require("duckument-manners.tools.tool-highlight.modu
 function M.highlight(hi_index)
 
 	color_parse.parse_colors()
-	hi_group = color_grabber.which_hi_group(hi_index)
+	local hi_group = color_grabber.which_hi_group(hi_index)
 	highlight_selection.highlight_visual_selection(hi_group)
 
 end
