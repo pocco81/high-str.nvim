@@ -30,9 +30,9 @@ function M.highlight_visual_selection(hi_group)
 		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, end_col)
 	else
 
-		local cols_in_beg_line = api.nvim_eval("col(["..beg_line..", '$']) - 1)")
+		local cols_in_beg_line = api.nvim_eval("col(["..beg_line..", '$'])")
 
-		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, tonumber(cols_in_beg_line))
+		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, cols_in_beg_line - 1)
 		if (beg_line + 1 == end_line) then
 			api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line, 0, end_col)
 		elseif (beg_line - 1 == end_line) then
