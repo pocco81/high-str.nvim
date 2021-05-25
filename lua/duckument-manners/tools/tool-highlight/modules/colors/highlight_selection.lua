@@ -28,6 +28,7 @@ function M.highlight_visual_selection(hi_group)
 	else
 
 		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, get_cols(beg_line) - 1)
+
 		if (beg_line + 1 == end_line) then
 			api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line, 0, end_col)
 		elseif (beg_line - 1 == end_line) then
@@ -49,10 +50,17 @@ function M.highlight_visual_selection(hi_group)
 				-- endif
 
 
+			local counter = 0
 
 			for i=beg_line - 1, end_line - 1, 1 do
 				if (i ~= end_line - 1) then
-					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, get_cols(i))
+					if (counter > 0) then
+						api.nvim_buf_clear_namespace(bufnr('%'), 0, i, i + 1)
+						api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, get_cols(i + 1) - 1)
+					else
+						counter = counter + 1
+						api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, end_col)
+					end
 				else
 					api.nvim_buf_add_highlight(current_buffer, 0, hi_group, i, 0, end_col)
 				end
