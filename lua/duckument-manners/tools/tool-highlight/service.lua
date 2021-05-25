@@ -3,7 +3,7 @@
 local M = {}
 
 local colors = require("duckument-manners.tools.tool-highlight.modules.colors")
-local highlight_selection = require("duckument-manners.tools.tool-highlight.modules.colors.highlight_selection")
+local highlight_selection = require("duckument-manners.tools.tool-highlight.modules.highlight_selection")
 
 
 function M.highlight(hi_index)
