@@ -26,6 +26,7 @@ function M.highlight_visual_selection(hi_group)
 	else
 
 		local cols_in_beg_line = api.nvim_eval("col(["..beg_line..", '$']) - 1)")
+		vim.cmd("echo 'Cols in beg: "..cols_in_beg_line.."'")
 
 		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, tonumber(cols_in_beg_line))
 		if (beg_line + 1 == end_line) then

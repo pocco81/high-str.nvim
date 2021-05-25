@@ -25,3 +25,17 @@ Previewed commands for each mode:
 	6)
 		DMRepetition [start/stop/toggle]	- defualt = toggle
 
+
+Before: save cursor ppsition
+
+
+1. clear the line
+	1,i0 go to like with :$i
+	1,i1 insert a line below
+	1,i2 clear namespace from $i line to $i + 1 one line
+2. Highlight from 0 to end
+
+
+After: restore position
+
+
