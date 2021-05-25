@@ -9,7 +9,7 @@ local opts = require("duckument-manners.config").options
 
 function M.parse_colors()
 	for opt, _ in pairs(opts["highlight"]) do
-		local hi_num = opt:gsub(opt, "color_")
+		local hi_num = opt:gsub("color_", "")
 		local hi_name = "DMHGroup"..hi_num
 		local hi_color = opts["highlight"][opt]
 
