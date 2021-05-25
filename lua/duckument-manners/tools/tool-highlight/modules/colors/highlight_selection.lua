@@ -21,7 +21,7 @@ function M.highlight_visual_selection(hi_group)
 	local end_col = api.nvim_eval([[get(g:,"end_col", 0)]])
 	local current_buffer = api.nvim_eval([[bufnr('%')]])
 
-	cmd("echo 'beg_line: "..beg_line.."; beg_col: "..beg_col.."; end_line: "..end_line.."; end_col: "..end_col.."'")
+	-- cmd("echo 'beg_line: "..beg_line.."; beg_col: "..beg_col.."; end_line: "..end_line.."; end_col: "..end_col.."'")
 
 	if (beg_line == end_line) then
 		-- api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, end_col)
