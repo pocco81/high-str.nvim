@@ -2,15 +2,14 @@
 
 local M = {}
 
-local color_parse = require("duckument-manners.tools.tool-highlight.modules.colors.color_parser")
-local color_grabber = require("duckument-manners.tools.tool-highlight.modules.colors.color_grabber")
+local colors = require("duckument-manners.tools.tool-highlight.modules.colors")
 local highlight_selection = require("duckument-manners.tools.tool-highlight.modules.colors.highlight_selection")
 
 
 function M.highlight(hi_index)
 
-	color_parse.parse_colors()
-	local hi_group = color_grabber.which_hi_group(hi_index)
+	colors.parse_colors()
+	local hi_group = colors.which_hi_group(hi_index)
 	highlight_selection.highlight_visual_selection(hi_group)
 
 end

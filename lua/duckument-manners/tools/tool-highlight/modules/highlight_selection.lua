@@ -3,8 +3,6 @@
 local M = {}
 
 local api = vim.api
-local cmd = vim.cmd
-
 
 local function get_cols(num) return api.nvim_eval("col(["..num..", '$'])") end
 
@@ -21,8 +19,6 @@ function M.highlight_visual_selection(hi_group)
 	local end_line = api.nvim_eval([[get(g:,"end_line", 0)]])
 	local end_col = api.nvim_eval([[get(g:,"end_col", 0)]])
 	local current_buffer = api.nvim_eval([[bufnr('%')]])
-
-	cmd("echo 'beg_line: "..beg_line.."; beg_col: "..beg_col.."; end_line: "..end_line.."; end_col: "..end_col.."'")
 
 	if (beg_line == end_line) then
 		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, beg_col, end_col)
@@ -55,19 +51,9 @@ function M.highlight_visual_selection(hi_group)
 		end
 	end
 
+	-- for some reason, positon where cusor ends ends up without highlight
 	local after_pos_two = api.nvim_eval("getpos('.')[2]")
-	cmd("echo 'after pos:"..after_pos_two.."'")
 	api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, after_pos_two - 1, after_pos_two)
-
-	cmd("unlet g:dm_cursor_pos_after")
-
-
-
-	-- cmd("echo 'after = "..after_pos_two.."'")
-	-- api.nvim_exec([[
-	-- 	let save_pos = getpos(".")
-	-- 	call nvim_buf_add_highlight(bufnr('%'), 0, 'LineHighlight', beg_minus_one, save_pos[2] - 1, save_pos[2])
-	-- ]], false)
 
 end
 
