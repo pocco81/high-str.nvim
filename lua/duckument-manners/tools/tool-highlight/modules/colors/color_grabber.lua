@@ -3,8 +3,9 @@
 local M = {}
 
 function M.which_hi_group(hi_index)
-	if (hi_index >= 0 and hi_index <= 10) then
-		return "DMHGroup"..hi_index
+	local index = tonumber(hi_index)
+	if (index >= 0 and index <= 10) then
+		return "DMHGroup"..index
 	end
 end
 
