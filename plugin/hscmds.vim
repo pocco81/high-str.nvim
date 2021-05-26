@@ -21,7 +21,7 @@ function! hscmds#available_args_tool_highlight() abort
 endfunction
 
 function! hscmds#available_args_tool_rmhighlight() abort
-	return luaeval('require("high-str.utils.available_args.args_rmtool_highlight").available_commands()')
+	return luaeval('require("high-str.utils.available_args.args_tool_rmhighlight").available_commands()')
 endfunction
 " }}}
 
