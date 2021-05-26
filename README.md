@@ -298,7 +298,7 @@ For more convoluted language, see the [LICENSE file](https://github.com/kdav5758
 # 📋 TO-DO
 
 **High Priority**
-- None
+- Store and Restore highlights on a per-file basis
 
 **Low Priority**
 - Add tab completion to get more than 10 numbers.
