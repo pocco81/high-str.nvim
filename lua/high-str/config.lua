@@ -26,23 +26,21 @@ function config.set_options(opts)
     opts = opts or {}
 
     for opt, _ in pairs(opts) do
-		vim.cmd("echo 'opt = "..opt.."; inner_opt = "..tostring(opts[opt]).."'")
-		-- check if option exists in the config's table
 		if (config.options[opt] ~= nil) then		-- not nil
-			-- chec if option is a table
 			if (type(opts[opt]) == "table") then	-- if table
 				for inner_opt, _ in pairs(opts[opt]) do
-					vim.cmd("echo 'inner_opt = "..tostring(inner_opt).."'")
 					if (type(opts[opt][inner_opt]) == "table") then	-- if table
+
+						if (config.options[opt][inner_opt] == nil) then
+							config.options[opt][inner_opt]=opts[opt][inner_opt]
+						end
+
 						for inner_inner_opt, _ in pairs(opts[opt][inner_opt]) do
-							vim.cmd("echo 'inner_inner_opt = "..tostring(inner_inner_opt).."; table val = "..tostring(opts[opt][inner_opt]).."'")
-							-- table contains element by that key
 							if (config.options[opt][inner_opt][inner_inner_opt] ~= nil) then		-- not nil
 								config.options[opt][inner_opt][inner_inner_opt] = opts[opt][inner_opt][inner_inner_opt]
 							end
 						end
 					else
-						-- table contains element by that key
 						if (config.options[opt][inner_opt] ~= nil) then		-- not nil
 							config.options[opt][inner_opt] = opts[opt][inner_opt]
 						end
