@@ -34,6 +34,7 @@ function config.set_options(opts)
 				for inner_opt, _ in pairs(opts[opt]) do
 					if (type(opts[opt][inner_opt]) == "table") then	-- if table
 						for inner_inner_opt, _ in pairs(opts[opt][inner_opt]) do
+							vim.cmd("echo 'inner_inner_opt = "..opts[opt][inner_opt].."'")
 							-- table contains element by that key
 							if (config.options[opt][inner_opt][inner_inner_opt] ~= nil) then		-- not nil
 								config.options[opt][inner_opt][inner_inner_opt] = opts[opt][inner_opt][inner_inner_opt]
