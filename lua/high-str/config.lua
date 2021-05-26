@@ -26,6 +26,7 @@ function config.set_options(opts)
     opts = opts or {}
 
     for opt, _ in pairs(opts) do
+		vim.cmd("echo 'opt = "..opt.."; inner_opt = "..tostring(opts[opt]).."'")
 		-- check if option exists in the config's table
 		if (config.options[opt] ~= nil) then		-- not nil
 			-- chec if option is a table
