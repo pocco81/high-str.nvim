@@ -12,8 +12,8 @@ function M.highlight(hi_index)
 	highlight_selection.highlight_visual_selection(hi_group)
 end
 
-function M.rm_highlight()
-	highlight_selection.rm_highlight_visual_selection()
+function M.rm_highlight(to_rm)
+	highlight_selection.rm_highlight_visual_selection(to_rm)
 end
 
 

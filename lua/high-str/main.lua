@@ -12,7 +12,7 @@ local tool_verbosity = require("high-str.tools.tool-verbosity.init")
 function M.main(option, command_option)
 
 	option = option or 0
-	command_option = command_option or "RmHighlight"
+	command_option = command_option or "NONE"
 
 	if (option == 0) then
 		tool_verbosity.verbose_print("Highlighting...")

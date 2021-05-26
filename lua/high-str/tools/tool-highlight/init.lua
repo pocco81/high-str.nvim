@@ -10,16 +10,16 @@ local function highlight(hi_index)
 	service.highlight(hi_index)
 end
 
-local function rm_highlight()
-	service.rm_highlight()
+local function rm_highlight(to_rm)
+	service.rm_highlight(to_rm)
 end
 
 function M.main(option)
 	-- option = color
-	if not (option == "RmHighlight") then
-		highlight(option)
+	if (option == "rm_all") then
+		rm_highlight(option)
 	else
-		rm_highlight()
+		highlight(option)
 	end
 end
 
