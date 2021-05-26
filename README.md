@@ -84,6 +84,9 @@
 - Produce a *verbose* output for debugging (optional).
 
 # 📺 Notices
+Checkout the [CHANGELOG.md](https://github.com/kdav5758/HighStr.nvim/blob/main/CHANGELOG.md) file for more information on the notices below:
+
+- **26-05-21**: Fixed bug that prevented adding new colors and added option to remove all highlighting from the current buffer
 - **25-05-21**: Just released!
 
 # 📦 Installation
@@ -211,7 +214,7 @@ All the commands follow the *camel casing* naming convention and have the `HS` p
 
 ## Default
 - `:HSHighlight <integer>` highlights current visual selection and receives an `<integer>` that indicates which colors to use from the `highlight_colors = {}` table; if none is given, HighStr.nvim will pick `color_1`.
-- `:HSRmHighlight` removes highlighting for every line in visual selection.
+- `:HSRmHighlight <rm_all>` If the `rm_all` argument is given, removes all the highlighting in the current buffer. If not, does the same but for every line in visual selection.
 
 # 🐬 Configuration
 Although settings already have self-explanatory names, here is where you can find info about each one of them and their classifications! 
@@ -293,7 +296,7 @@ HighStr.nvim is released under the GPL v3.0 license. It grants open-source permi
 - The right to redistribute copies of the software
 - The right to modify and distribute copies of new versions of the software
 
-For more convoluted language, see the [LICENSE file](https://github.com/kdav5758/HighStr.nvim/blob/main/README.md).
+For more convoluted language, see the [LICENSE file](https://github.com/kdav5758/HighStr.nvim/blob/main/LICENSE.md).
 
 # 📋 TO-DO
 

@@ -147,7 +147,7 @@ All the commands follow the *camel casing* naming convention and have the `HS` p
 
 ## Default										*highstr-default*
 - `:HSHighlight <integer>` highlights current visual selection and receives an `<integer>` that indicates which colors to use from the `highlight_colors = {}` table; if none is given, HighStr.nvim will pick `color_1`.
-- `:HSRmHighlight` removes highlighting for every line in visual selection.
+- `:HSRmHighlight <rm_all>` If the `rm_all` argument is given, removes all the highlighting in the current buffer. If not, does the same but for every line in visual selection.
 
 # Configuration									*highstr-configuration*
 Although settings already have self-explanatory names, here is where you can find info about each one of them and their classifications!
