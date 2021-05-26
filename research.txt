@@ -1,0 +1,20 @@
+
+
+
+How to highlight:
+
+
+1. create hi groups
+2. check which color is it
+3. get visual selection
+4. highlight it
+
+
+In order to restore and store highlights the plugin must:
+1. Create ~/.config/HighStr/tracker.txt if not exists
+2. When `:HSSaveHighlight`, get full path (`expand('%:p')`) and append it to tracker.txt (or override it if it doesn't exist)
+	2.i0 after that, put "= ~/.config/saved_highlights/hs_hi#.txt"
+
+
+
+
