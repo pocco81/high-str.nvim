@@ -28,14 +28,9 @@ local function table_length(T)
 end
 
 function M.which_hi_group(hi_index)
-
-	if (type(hi_index) == "number") then
-		local index = math.floor(hi_index)
-		if (index >= 0 and index <= table_length(opts["highlight_colors"])) then
-			return "DMHGroup"..index
-		end
-	else
-		cmd("echo 'HighStr.nvim ERROR: You can only pass integers to this command'")
+	local index = math.floor(tonumber(hi_index))
+	if (index >= 0 and index <= table_length(opts["highlight_colors"])) then
+		return "DMHGroup"..index
 	end
 end
 
