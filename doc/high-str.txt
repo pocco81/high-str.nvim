@@ -67,7 +67,7 @@ As it's stated in the TL;DR, there are already some sane defaults that you may l
 ```lua
 verbosity = 0,
 highlight_colors = {
-	color_0 = {"#000000", "smart"},	-- Chartreuse yellow
+	color_0 = {"#0c0d0e", "smart"},	-- Cosmic charcoal
 	color_1 = {"#e5c07b", "smart"},	-- Pastel yellow
 	color_2 = {"#7FFFD4", "smart"},	-- Aqua menthe
 	color_3 = {"#8A2BE2", "smart"},	-- Proton purple
@@ -92,7 +92,7 @@ high_str.setup({
 	verbosity = 0,
 	highlight_colors = {
 		-- color_id = {"bg_hex_code",<"fg_hex_code"/"smart">}
-		color_0 = {"#000000", "smart"},	-- Chartreuse yellow
+		color_0 = {"#0c0d0e", "smart"},	-- Cosmic charcoal
 		color_1 = {"#e5c07b", "smart"},	-- Pastel yellow
 		color_2 = {"#7FFFD4", "smart"},	-- Aqua menthe
 		color_3 = {"#8A2BE2", "smart"},	-- Proton purple
@@ -117,7 +117,7 @@ high_str.setup({
 	verbosity = 0,
 	highlight_colors = {
 		-- color_id = {"bg_hex_code",<"fg_hex_code"/"smart">}
-		color_0 = {"#000000", "smart"},	-- Chartreuse yellow
+		color_0 = {"#0c0d0e", "smart"},	-- Cosmic charcoal
 		color_1 = {"#e5c07b", "smart"},	-- Pastel yellow
 		color_2 = {"#7FFFD4", "smart"},	-- Aqua menthe
 		color_3 = {"#8A2BE2", "smart"},	-- Proton purple
