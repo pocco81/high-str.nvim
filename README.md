@@ -5,34 +5,34 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/kdav5758/HighStr.nvim/stargazers"
+    <a href="https://github.com/Pocco81/HighStr.nvim/stargazers"
         ><img
-            src="https://img.shields.io/github/stars/kdav5758/HighStr.nvim"
+            src="https://img.shields.io/github/stars/Pocco81/HighStr.nvim"
             alt="Repository's starts"
     /></a>
-    <a href="https://github.com/kdav5758/HighStr.nvim/issues"
+    <a href="https://github.com/Pocco81/HighStr.nvim/issues"
         ><img
-            src="https://img.shields.io/github/issues-raw/kdav5758/HighStr.nvim"
+            src="https://img.shields.io/github/issues-raw/Pocco81/HighStr.nvim"
             alt="Issues"
     /></a>
-    <a href="https://github.com/kdav5758/HighStr.nvim/blob/main/LICENSE"
+    <a href="https://github.com/Pocco81/HighStr.nvim/blob/main/LICENSE"
         ><img
-            src="https://img.shields.io/github/license/kdav5758/HighStr.nvim"
+            src="https://img.shields.io/github/license/Pocco81/HighStr.nvim"
             alt="License"
     /><br />
-    <a href="https://saythanks.io/to/kdav5758%40gmail.com"
+    <a href="https://saythanks.io/to/Pocco81%40gmail.com"
         ><img
             src="https://img.shields.io/badge/say-thanks-modal.svg"
             alt="Say thanks"/></a
-    ></a>    <a href="https://github.com/kdav5758/whid.nvim/commits/main"
-    <a href="https://github.com/kdav5758/HighStr.nvim/commits/main"
+    ></a>    <a href="https://github.com/Pocco81/whid.nvim/commits/main"
+    <a href="https://github.com/Pocco81/HighStr.nvim/commits/main"
 		><img
-			src="https://img.shields.io/github/last-commit/kdav5758/HighStr.nvim/dev"
+			src="https://img.shields.io/github/last-commit/Pocco81/HighStr.nvim/dev"
 			alt="Latest commit"
     /></a>
-    <a href="https://github.com/kdav5758/HighStr.nvim"
+    <a href="https://github.com/Pocco81/HighStr.nvim"
         ><img
-            src="https://img.shields.io/github/repo-size/kdav5758/HighStr.nvim"
+            src="https://img.shields.io/github/repo-size/Pocco81/HighStr.nvim"
             alt="GitHub repository size"
     /></a>
 </p>
@@ -84,7 +84,7 @@
 - Produce a *verbose* output for debugging (optional).
 
 # 📺 Notices
-Checkout the [CHANGELOG.md](https://github.com/kdav5758/HighStr.nvim/blob/main/CHANGELOG.md) file for more information on the notices below:
+Checkout the [CHANGELOG.md](https://github.com/Pocco81/HighStr.nvim/blob/main/CHANGELOG.md) file for more information on the notices below:
 
 - **26-05-21**: Fixed bug that prevented adding new colors and added option to remove all highlighting from the current buffer
 - **25-05-21**: Just released!
@@ -102,23 +102,23 @@ You can use your favorite plugin manager for this. Here are some examples with t
 ### Vim-plug
 
 ```lua
-Plug 'kdav5758/HighStr.nvim'
+Plug 'Pocco81/HighStr.nvim'
 ```
 ### Packer.nvim
 
 ```lua
-use "kdav5758/HighStr.nvim"
+use "Pocco81/HighStr.nvim"
 ```
 
 ### Vundle
 
 ```lua
-Plugin 'kdav5758/HighStr.nvim'
+Plugin 'Pocco81/HighStr.nvim'
 ```
 
 ### NeoBundle
 ```lua
-NeoBundleFetch 'kdav5758/HighStr.nvim'
+NeoBundleFetch 'Pocco81/HighStr.nvim'
 ```
 
 ## Setup (configuration)
@@ -279,7 +279,7 @@ vnoremap <silent> <f4> :<c-u>HSRmHighlight<CR>
 
 # 🫂 Contribute
 
-Pull Requests are welcomed as long as they are properly justified and there are no conflicts. If your PR has something to do with the README or in general related with the documentation, I'll gladly merge it! Also, when writing code for the project **you must** use the [.editorconfig](https://github.com/kdav5758/HighStr.nvim/blob/main/.editorconfig) file on your editor so as to "maintain consistent coding styles". For instructions on how to use this file refer to [EditorConfig's website](https://editorconfig.org/).
+Pull Requests are welcomed as long as they are properly justified and there are no conflicts. If your PR has something to do with the README or in general related with the documentation, I'll gladly merge it! Also, when writing code for the project **you must** use the [.editorconfig](https://github.com/Pocco81/HighStr.nvim/blob/main/.editorconfig) file on your editor so as to "maintain consistent coding styles". For instructions on how to use this file refer to [EditorConfig's website](https://editorconfig.org/).
 
 # 💭 Inspirations
 
@@ -295,7 +295,7 @@ HighStr.nvim is released under the GPL v3.0 license. It grants open-source permi
 - The right to redistribute copies of the software
 - The right to modify and distribute copies of new versions of the software
 
-For more convoluted language, see the [LICENSE file](https://github.com/kdav5758/HighStr.nvim/blob/main/LICENSE.md).
+For more convoluted language, see the [LICENSE file](https://github.com/Pocco81/HighStr.nvim/blob/main/LICENSE.md).
 
 # 📋 TO-DO
 
