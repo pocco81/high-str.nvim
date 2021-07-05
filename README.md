@@ -1,4 +1,4 @@
-# 🦎 HighStr.nvim
+<h1 align="center">🦎 HighStr.nvim</h1>
 
 <p align="center">
 	A NeoVim plugin for highlighting visual selections like in a normal document editor!
