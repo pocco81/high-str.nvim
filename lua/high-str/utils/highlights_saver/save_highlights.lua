@@ -21,6 +21,8 @@ function M.save(beg_line, beg_col, end_line, end_col)
 		end_col = end_col
 	}
 
+	table.insert(list_cords, "test")
+
 	print(#list_cords)
 end
 
