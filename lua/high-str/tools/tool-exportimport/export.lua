@@ -3,6 +3,7 @@ local M = {}
 local hs_util = require("high-str.utils.highlights_saver.save_highlights")
 local opts = require("high-str.config").options
 local tbl_utils = require("high-str.utils.general.tables")
+local import = require("high-str.tools.tool-exportimport.import")
 
 local function exportstring(s)
     return string.format("%q", s)
@@ -89,10 +90,10 @@ function M.export()
     if (next(cords) == nil) then
         print("HighStr: there are no highlights to save")
     else
-        local ok, file_cords = pcall(dofile, opts.saving_path .. "cords.txt")
+		local file_cords = import.load_file(opts.saving_path .. "cords.txt")
         local final_cords = {}
 
-        if (ok) then
+        if (file_cords ~= nil) then
             final_cords = vim.tbl_deep_extend("force", file_cords or {}, cords)
         else
             final_cords = cords
