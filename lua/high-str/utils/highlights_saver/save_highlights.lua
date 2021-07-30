@@ -20,6 +20,8 @@ function M.save(beg_line, beg_col, end_line, end_col)
 		end_line = end_line,
 		end_col = end_col
 	}
+
+	print(#list_cords)
 end
 
 return M
