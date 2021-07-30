@@ -4,44 +4,83 @@ local hs_util = require("high-str.utils.highlights_saver.save_highlights")
 local opts = require("high-str.config").options
 local tbl_utils = require("high-str.utils.general.tables")
 
-local function write_table(t, f)
-    local function write_table_helper(obj, cnt)
-        local cnt = cnt or 0
+local function exportstring(s)
+    return string.format("%q", s)
+end
 
-        if type(obj) == "table" then
-            io.write("\n", string.rep("\t", cnt), "{\n")
-            cnt = cnt + 1
+--// The Save Function
+local function save_file(tbl, filename)
+    local charS, charE = "   ", "\n"
+    local file, err = io.open(filename, "wb")
+    if err then
+        return err
+    end
 
-            for k, v in pairs(obj) do
-                if type(k) == "string" then
-                    io.write(string.rep("\t", cnt), '["' .. k .. '"]', " = ")
+    -- initiate variables for save procedure
+    local tables, lookup = {tbl}, {[tbl] = 1}
+    file:write("return {" .. charE)
+
+    for idx, t in ipairs(tables) do
+        file:write("-- Table: {" .. idx .. "}" .. charE)
+        file:write("{" .. charE)
+        local thandled = {}
+
+        for i, v in ipairs(t) do
+            thandled[i] = true
+            local stype = type(v)
+            -- only handle value
+            if stype == "table" then
+                if not lookup[v] then
+                    table.insert(tables, v)
+                    lookup[v] = #tables
                 end
-
-                if type(k) == "number" then
-                    io.write(string.rep("\t", cnt), "[" .. k .. "]", " = ")
-                end
-
-                write_table_helper(v, cnt)
-                io.write(",\n")
+                file:write(charS .. "{" .. lookup[v] .. "}," .. charE)
+            elseif stype == "string" then
+                file:write(charS .. exportstring(v) .. "," .. charE)
+            elseif stype == "number" then
+                file:write(charS .. tostring(v) .. "," .. charE)
             end
-
-            cnt = cnt - 1
-            io.write(string.rep("\t", cnt), "}")
-        elseif type(obj) == "string" then
-            io.write(string.format("%q", obj))
-        else
-            io.write(tostring(obj))
         end
-    end
 
-    if f == nil then
-        write_table_helper(t)
-    else
-        io.output(f)
-        io.write("return")
-        write_table_helper(t)
-        io.output(io.stdout)
+        for i, v in pairs(t) do
+            -- escape handled values
+            if (not thandled[i]) then
+                local str = ""
+                local stype = type(i)
+                -- handle index
+                if stype == "table" then
+                    if not lookup[i] then
+                        table.insert(tables, i)
+                        lookup[i] = #tables
+                    end
+                    str = charS .. "[{" .. lookup[i] .. "}]="
+                elseif stype == "string" then
+                    str = charS .. "[" .. exportstring(i) .. "]="
+                elseif stype == "number" then
+                    str = charS .. "[" .. tostring(i) .. "]="
+                end
+
+                if str ~= "" then
+                    stype = type(v)
+                    -- handle value
+                    if stype == "table" then
+                        if not lookup[v] then
+                            table.insert(tables, v)
+                            lookup[v] = #tables
+                        end
+                        file:write(str .. "{" .. lookup[v] .. "}," .. charE)
+                    elseif stype == "string" then
+                        file:write(str .. exportstring(v) .. "," .. charE)
+                    elseif stype == "number" then
+                        file:write(str .. tostring(v) .. "," .. charE)
+                    end
+                end
+            end
+        end
+        file:write("}," .. charE)
     end
+    file:write("}")
+    file:close()
 end
 
 function M.export()
@@ -59,7 +98,7 @@ function M.export()
             final_cords = cords
         end
 
-        write_table(final_cords, opts.saving_path .. "cords.txt")
+		save_file(final_cords, opts.saving_path .. "cords.txt")
     end
 end
 
