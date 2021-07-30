@@ -37,8 +37,10 @@ endfunction
 
 
 " Interface {{{
-command! -nargs=* -complete=custom,s:complete_args_tool_highlight HSHighlight call v:lua.require("high-str.main").main(0,hscmds#get_first_arg(<f-args>))
-command! -nargs=* -complete=custom,s:complete_args_tool_rmhighlight HSRmHighlight call v:lua.require("high-str.main").main(1,hscmds#get_first_arg(<f-args>))
+command! -nargs=* -complete=custom,s:complete_args_tool_highlight HSHighlight call v:lua.require("high-str.main").main('highlight',hscmds#get_first_arg(<f-args>))
+command! -nargs=* -complete=custom,s:complete_args_tool_rmhighlight HSRmHighlight call v:lua.require("high-str.main").main('rmhighlight',hscmds#get_first_arg(<f-args>))
+command! -nargs=0 HSExport call v:lua.require("high-str.main").main('export')
+command! -nargs=0 HSImport call v:lua.require("high-str.main").main('import')
 " }}}
 
 
