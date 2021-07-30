@@ -66,6 +66,7 @@ NeoBundleFetch 'kdav5758/HighStr.nvim'
 As it's stated in the TL;DR, there are already some sane defaults that you may like, however you can change them to match your taste. These are the defaults:
 ```lua
 verbosity = 0,
+saving_path = "/tmp/highstr/",
 highlight_colors = {
 	color_0 = {"#0c0d0e", "smart"},	-- Cosmic charcoal
 	color_1 = {"#e5c07b", "smart"},	-- Pastel yellow
@@ -90,6 +91,7 @@ local high_str = require("high-str")
 
 high_str.setup({
 	verbosity = 0,
+	saving_path = "/tmp/highstr/",
 	highlight_colors = {
 		-- color_id = {"bg_hex_code",<"fg_hex_code"/"smart">}
 		color_0 = {"#0c0d0e", "smart"},	-- Cosmic charcoal
@@ -115,6 +117,7 @@ local high_str = require("high-str")
 
 high_str.setup({
 	verbosity = 0,
+	saving_path = "/tmp/highstr/",
 	highlight_colors = {
 		-- color_id = {"bg_hex_code",<"fg_hex_code"/"smart">}
 		color_0 = {"#0c0d0e", "smart"},	-- Cosmic charcoal
@@ -146,8 +149,10 @@ This depends on your plugin manager. If, for example, you are using Packer.nvim,
 All the commands follow the *camel casing* naming convention and have the `HS` prefix so that it's easy to remember that they are part of the HighStr.nvim plugin. These are all of them:
 
 ## Default										*highstr-default*
-- `:HSHighlight <integer>` highlights current visual selection and receives an `<integer>` that indicates which colors to use from the `highlight_colors = {}` table; if none is given, HighStr.nvim will pick `color_1`.
-- `:HSRmHighlight <rm_all>` If the `rm_all` argument is given, removes all the highlighting in the current buffer. If not, does the same but for every line in visual selection.
++ `:HSHighlight <integer>`: highlights current visual selection and receives an `<integer>` that indicates which colors to use from the `highlight_colors = {}` table; if none is given, HighStr.nvim will pick `color_1`.
++ `:HSRmHighlight <rm_all>`: If the `rm_all` argument is given, removes all the highlighting in the current buffer. If not, does the same but for every line in visual selection.
++ `:HSExport`: exports highlights from the current session to `<saving_path>`. This command overrides previously saved highlights, so you may also use it for **clearing** them.
++ `:HSImport`: imports highlights from `<saving_path>`.
 
 # Configuration									*highstr-configuration*
 Although settings already have self-explanatory names, here is where you can find info about each one of them and their classifications!
@@ -155,6 +160,7 @@ Although settings already have self-explanatory names, here is where you can fin
 ## General										*highstr-general*
 This settings are unrelated to any group and are independent.
 - `verbosity`: (Integer) if greater that zero, enables verbose output (print what it does when you execute any of the two command).
+- `saving_path`: (String) path to a directory for saving the highlights when they get exported. The directory shouldn't necessarily exist, however, the only condition is that it must end with a forward slash the path you give (`/`).
 
 ## Highlight Colors								*highstr-highlight-colors*
 The table `highlight_colors = {}` contains all of the colors HighStr.nvim will use when you highlight something. The convention is simple: `color_<a_number>`. Each color is a table in which the first element represents the background of the color (the highlight it self), and the second one represents the foreground (the color of the text that's being highlighted). The second parameter may also be the word "smart", to change the color of the foreground based on the background in order to get a better contrast (e.g. if background is white, set foreground to black). Here is an example:
