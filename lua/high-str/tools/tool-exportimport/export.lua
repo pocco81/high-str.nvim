@@ -90,11 +90,20 @@ function M.export()
     if (next(cords) == nil) then
         print("HighStr: there are no highlights to save")
     else
-		local file_cords = import.load_file(opts.saving_path .. "cords.txt")
+		local file_cords = import.load_file(opts.saving_path .. "cords.txt") or {}
         local final_cords = {}
 
-        if (file_cords ~= nil) then
-            final_cords = vim.tbl_deep_extend("force", file_cords or {}, cords)
+		print(tostring(next(file_cords)))
+
+        if (next(file_cords) ~= nil) then
+            final_cords = vim.tbl_deep_extend("force", file_cords, cords)
+			for file, vals in pairs(final_cords) do
+				for local_file, vals in pairs(cords) do
+					if (file == local_file) then
+						final_cords[file] = cords[local_file]
+					end
+				end
+			end
         else
             final_cords = cords
         end
