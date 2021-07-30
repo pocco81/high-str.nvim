@@ -14,7 +14,7 @@ function M.save(beg_line, beg_col, end_line, end_col)
 		list_cords[file] = {}
 	end
 
-	list_cords[file]["highlight_" .. tbl_utils.get_length(list_cords[file]) + 1] = {
+	list_cords[file]["highlight_" .. tbl_utils.table_length(list_cords[file]) + 1] = {
 		beg_line = beg_line,
 		beg_col = beg_col,
 		end_line = end_line,

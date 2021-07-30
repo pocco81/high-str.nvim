@@ -8,7 +8,7 @@ function M.table_length(T)
     return count
 end
 
-function M.get_length(tbl)
+function M.table_length(tbl)
     local count = 0
     for _, _ in pairs(tbl) do
         count = count + 1
