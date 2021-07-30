@@ -54,9 +54,9 @@ function M.export()
         local final_cords = {}
 
         if (ok) then
-            final_cords = vim.tbl_deep_extend("force", file_cords, cords)
+            final_cords = vim.tbl_deep_extend("force", file_cords or {}, cords)
         else
-            file_cords = cords
+            final_cords = cords
         end
 
         write_table(final_cords, opts.saving_path .. "cords.txt")
