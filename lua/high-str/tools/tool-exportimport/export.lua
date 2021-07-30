@@ -47,7 +47,7 @@ end
 function M.export()
     local cords = hs_util.get_highlights()
 
-    if (#cords == 0) then
+    if (next(cords) == nil) then
         print("HighStr: there are no highlights to save")
     else
         local ok, file_cords = pcall(dofile, opts.saving_path .. "cords.txt")
