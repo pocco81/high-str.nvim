@@ -32,7 +32,7 @@ function M.rm_highlight_visual_selection(to_rm)
     end
 end
 
-function M.highlight_visual_selection(hi_group)
+function M.highlight_visual_selection(hi_group, beg_line, beg_col, end_line, end_col)
     api.nvim_exec(
         [[
 		" Get the line and column of the visual selection marks
@@ -42,10 +42,10 @@ function M.highlight_visual_selection(hi_group)
         false
     )
 
-    local beg_line = api.nvim_eval([[get(g:,"beg_line", 0)]])
-    local beg_col = api.nvim_eval([[get(g:,"beg_col", 0)]])
-    local end_line = api.nvim_eval([[get(g:,"end_line", 0)]])
-    local end_col = api.nvim_eval([[get(g:,"end_col", 0)]])
+    beg_line = beg_line or api.nvim_eval([[get(g:,"beg_line", 0)]])
+    beg_col = beg_col or api.nvim_eval([[get(g:,"beg_col", 0)]])
+    end_line = end_line or api.nvim_eval([[get(g:,"end_line", 0)]])
+    end_col = end_col or api.nvim_eval([[get(g:,"end_col", 0)]])
     local current_buffer = api.nvim_eval([[bufnr('%')]])
 
     tool_verbosity.verbose_print("Starting process for highlighting selection...")
@@ -87,7 +87,7 @@ function M.highlight_visual_selection(hi_group)
     local after_pos_two = api.nvim_eval("getpos('.')[2]")
     api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, after_pos_two - 1, after_pos_two)
 
-	hs_util.save(beg_line, beg_col, end_line, end_col)
+	hs_util.save(hi_group, beg_line, beg_col, end_line, end_col)
 end
 
 return M
