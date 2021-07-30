@@ -1,5 +1,13 @@
 local M = {}
 
+function M.table_length(T)
+    local count = 0
+    for _ in pairs(T) do
+        count = count + 1
+    end
+    return count
+end
+
 function M.get_length(tbl)
     local count = 0
     for _, _ in pairs(tbl) do
