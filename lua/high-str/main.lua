@@ -17,7 +17,7 @@ function M.main(option, command_option)
     elseif (option == "export") then
         tool_verbosity.verbose_print("Exporting Highlights...")
         -- require("high-str.tools.tool-highlight.rmhighlight.init").main(command_option)
-		require(tools_prefix .. "tool-exportimport.import").export()
+		require(tools_prefix .. "tool-exportimport.export").export()
     elseif (option == "import") then
         tool_verbosity.verbose_print("Importing Highlights...")
         -- require("high-str.tools.tool-highlight.rmhighlight.init").main(command_option)
