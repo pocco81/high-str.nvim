@@ -93,12 +93,10 @@ function M.export()
 		local file_cords = import.load_file(opts.saving_path .. "cords.txt") or {}
         local final_cords = {}
 
-		print(tostring(next(file_cords)))
-
         if (next(file_cords) ~= nil) then
             final_cords = vim.tbl_deep_extend("force", file_cords, cords)
-			for file, vals in pairs(final_cords) do
-				for local_file, vals in pairs(cords) do
+			for file, _ in pairs(final_cords) do
+				for local_file, _ in pairs(cords) do
 					if (file == local_file) then
 						final_cords[file] = cords[local_file]
 					end
