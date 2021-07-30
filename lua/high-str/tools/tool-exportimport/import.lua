@@ -34,7 +34,7 @@ function M.import()
 	local file_cords = M.load_file(opts.saving_path .. "cords.txt")
 	local file = vim.fn.expand('%:p')
 
-	if (tbl_utils.has_element(file_cords, file, "index") and file_cords ~= nil) then
+	if (tbl_utils.has_element(file_cords or {}, file, "index") and file_cords ~= nil) then
 		for hi, _ in pairs(file_cords[file]) do
 			local hi_group = file_cords[file][hi]["hi_group"]
 			local beg_line = file_cords[file][hi]["beg_line"]
