@@ -10,7 +10,7 @@ end
 function M.save(beg_line, beg_col, end_line, end_col)
 	local file = vim.fn.expand('%:p')
 
-	if not (tbl_utils.has_element(list_cords, file, "key")) then
+	if not (tbl_utils.has_element(list_cords, file, "index")) then
 		list_cords[file] = {}
 	end
 
