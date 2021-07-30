@@ -42,7 +42,7 @@ function M.import()
 			local end_line = vals["end_line"]
 			local end_col = vals["end_col"]
 
-			hl_selection.highlight_visual_selection(hi_group, beg_line, beg_col, end_line, end_col)
+			hl_selection.highlight_visual_selection(hi_group, beg_line, beg_col, end_line, end_col, true)
 
 		end
 

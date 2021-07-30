@@ -32,7 +32,7 @@ function M.rm_highlight_visual_selection(to_rm)
     end
 end
 
-function M.highlight_visual_selection(hi_group, beg_line, beg_col, end_line, end_col)
+function M.highlight_visual_selection(hi_group, beg_line, beg_col, end_line, end_col, ignore_cursor_hl)
     api.nvim_exec(
         [[
 		" Get the line and column of the visual selection marks
@@ -83,9 +83,11 @@ function M.highlight_visual_selection(hi_group, beg_line, beg_col, end_line, end
         end
     end
 
-    -- for some reason, positon where cusor ends ends up without highlight
-    local after_pos_two = api.nvim_eval("getpos('.')[2]")
-    api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, after_pos_two - 1, after_pos_two)
+    -- for some reason, positon where the cursor ends ends up without highlight
+	if (ignore_cursor_hl ~= true) then
+		local after_pos_two = api.nvim_eval("getpos('.')[2]")
+		api.nvim_buf_add_highlight(current_buffer, 0, hi_group, beg_line - 1, after_pos_two - 1, after_pos_two)
+	end
 
 	hs_util.save(hi_group, beg_line, beg_col, end_line, end_col)
 end
