@@ -76,12 +76,13 @@
 * [To-Do](#-to-do)
 
 # 🎁 Features
-- Highlight visual selection in any given *pre-defined* color.
-- Remove highlighting from lines in visual selection.
-- Users can set up foreground and background of any color.
-- Has a "smart" option to set foreground based on background.
-- Users can add any amount of colors.
-- Produce a *verbose* output for debugging (optional).
++ Highlight visual selection in any given *pre-defined* color.
++ Remove highlighting from lines in visual selection.
++ Users can set up foreground and background of any color.
++ Has a "smart" option to set foreground based on background.
++ Users can add any amount of colors.
++ Produce a *verbose* output for debugging (optional).
++ Export and import highlights!
 
 # 📺 Notices
 Checkout the [CHANGELOG.md](https://github.com/Pocco81/HighStr.nvim/blob/main/CHANGELOG.md) file for more information on the notices below:
