@@ -87,6 +87,7 @@
 # 📺 Notices
 Checkout the [CHANGELOG.md](https://github.com/Pocco81/HighStr.nvim/blob/main/CHANGELOG.md) file for more information on the notices below:
 
+- **16-08-21**: Fixed #6: properly highlight imported highlights.
 - **30-07-21**: Feat #1: import and export highlights!
 - **26-05-21**: Fixed bug that prevented adding new colors and added option to remove all highlighting from the current buffer
 - **25-05-21**: Just released!
