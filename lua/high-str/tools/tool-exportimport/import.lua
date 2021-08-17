@@ -42,6 +42,8 @@ function M.import()
 			local end_line = vals["end_line"]
 			local end_col = vals["end_col"]
 
+			if (beg_col > 0) then beg_col = beg_col - 1 end
+
 			hl_selection.highlight_visual_selection(hi_group, beg_line, beg_col, end_line, end_col, true)
 
 		end
