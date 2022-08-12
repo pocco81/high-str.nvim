@@ -1,6 +1,5 @@
 local M = {}
 
-local cmd = vim.cmd
 local tool_verbosity = require("high-str.tools.tool-verbosity.init")
 local tools_prefix = "high-str.tools."
 
